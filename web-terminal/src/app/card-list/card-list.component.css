@@ -1,0 +1,43 @@
+.list-container {
+    /* background-color: rgb(71, 227, 255); */
+    max-height: 320px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.card-item {
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 60px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: solid 1px #FFE600;
+    text-transform: uppercase;
+    line-height: 1.1;
+    cursor: pointer;
+}
+
+.selected{
+    background-color:  #FFE600;
+}
+
+.card-item:hover {
+    background-color:  #FFE600;
+}
+
+.name{
+    font-size: 12px;
+}
+
+.address{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+svg {
+    height: 14px;
+    width: 14px;
+    fill: white;
+    position: relative;
+    right: 10px;
+}

@@ -1,0 +1,5 @@
+<div (click)="buttonClick()" class="custom-button d-flex align-items-center">
+    <span>{{buttonText}}</span>
+
+    <div *ngIf="isLoading" class="spinner-border ml-2"></div>
+</div>

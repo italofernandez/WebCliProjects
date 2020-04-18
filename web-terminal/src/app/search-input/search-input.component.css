@@ -1,0 +1,22 @@
+.input-container{
+    height: 40px;
+    width: 100%;
+    padding: 8px 14px;
+    border-radius: 16px;
+
+    background-color: #EEEEEE;
+}
+
+input {
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    color: #6C6C6C;
+    font-size: 14px;
+}
+
+svg{
+    height: 16px;
+    width: 16px;
+    fill: #6C6C6C;
+}

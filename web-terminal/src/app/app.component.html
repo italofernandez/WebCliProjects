@@ -1,0 +1,124 @@
+<div class="container-fluid teste">
+  <div class="row h-100">
+
+    <div class="col-2 p-2">
+      <div class="card-container h-100">
+        <div class="side-menu-header d-flex align-items-center">
+          <span class="mr-auto">Web Terminal</span>
+          <img class="profile-photo" src="assets/images/people01.jpg" alt="">
+        </div>
+
+        <div class="divider my-2"></div>
+
+        <search-input></search-input>
+
+        <span>Machines</span>
+
+        <card-list [collection]="machineList" [selectedMachine]="selectedMachine" (onSelect)="onMachineSelect($event)"></card-list>
+      </div>
+    </div>
+
+    <div class="col-10 p-2">
+      <div class="row h-100">
+        <div class="col-12">
+          <div class="card-container">
+            <div class="row">
+              <div class="col-6">
+                <div class="col-12">
+                  <span class="title mb-1">Machine Details</span>
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Machine Name</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.machineName}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Local Address</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.localAddress}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Antivirus</span>
+                    </div>
+                    <div class="col">
+                      <span>{{(selectedMachine.antivirusInfo.hasAntivirusInstalled) ? 'Yes -' : 'No'}} {{selectedMachine.antivirusInfo.applicationName}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">OS Version</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.windowsVersion}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">.NET Framework Version</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.runtimeVersion}}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-6">
+                <div class="col-12">
+                  <span class="title mb-1">Hard Drive Info</span>
+
+                  <!-- lista de HDs -->
+                  <disk-card-list [collection]="selectedMachine.hardDriveInfos"></disk-card-list>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="col-6">
+          <div class="card-container h-100">
+            <div class="container-fluid">
+              <div class="row d-flex mb-2">
+                <div>
+                  <span class="title mb-2">Input</span>
+                </div>
+                <div class="ml-auto">
+                  <!-- <button (click)="executeCommand()">Run</button> -->
+                  <custom-button buttonText="Run" [isLoading]="isLoading" (onClick)="executeCommand()"></custom-button>
+                </div>
+              </div>
+  
+              <div class="row">
+                <textarea spellcheck="false" [(ngModel)]="input"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="col-6">
+          <div class="card-container h-100">
+            <div class="container-fluid">
+              <div class="row">
+                <span class="title mb-2">Output</span>
+              </div>  
+              <div class="row">
+                <div class="output-container">
+                  <span style="font-size: 13px;" *ngFor="let line of outputLines">{{line}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

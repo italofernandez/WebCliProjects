@@ -1,0 +1,27 @@
+<div class="list-container">
+    <div *ngFor="let disk of collection" class="disk-card mr-2 mb-2">
+        <span class="title big">Disk {{disk.label}}</span><br>
+
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="col-12">
+                    <div class="progress-container">
+                        <div class="c100 yellow small" [ngClass]="[getPercentageClass(disk.totalSize, disk.freeSpace)]">
+                            <span>{{getPercentage(disk.totalSize, disk.freeSpace)}}%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col px-0 d-flex align-items-center">
+                    <span class="info">{{disk.freeSpace}} free of {{disk.totalSize}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
